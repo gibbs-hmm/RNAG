@@ -1,0 +1,40 @@
+RNAG output:
+
+00aln:
+Contains the sequence alignments for each of the 2000 iterations of the algorithm, labeled '>alignment 0', etc...
+
+00str:
+Contains the consensus structures for each of the 2000 iterations of the algorithm, labeled '>structure 0', etc...
+
+1999.cm:
+Gives the final covariance model for the input sequences
+
+2000.aln:
+Gives the final multiple sequence alignment using the final covariance model, in CLUSTAL format
+
+project_k.str:
+For k  = 1,...,#seqs, this gives the 2000 projections of the sequence onto the consensus structure at each iteration
+
+
+**The following files are created only if an Rfam identifier was provided...
+
+bias_variance:
+For each sequence, the bias is the average hamming distance of the projected structure from the reference, based on the last 1000 iterations. The variance is the variance of those hamming distances.
+
+en_centroid_k:
+for k = 1,...,#seqs, this gives the ensemble centroids for varying levels of gamma (controlling the sensitivity/specificity tradeoff). Each line in the file contains the structure first, then the value for gamma (abbreviated g), then the 95% credibility limit, which gives the minimum hamming distance from the gamma-centroid needed to capture at least 95% of the posterior space of structures, estimated using the last 1000 sampled structures.
+
+centroid_k:
+for k = 1,...,#seqs, this gives the centroids of all of the clusters found by the algorithm. Within each cluster, the information is in the same format as the en_centroid files, plus a count of the last 1000 sampled structures that fall into that cluster, given in parentheses after '>>centroid #:'
+
+stu_k.mat:
+for k = 1,...,#seqs, this has four components:
+1) 'Z' is a matrix of linkages which can be used with the matlab 'dendrogram' command to create a hierarchical cluster tree
+2) 'dis' is a vector of length 2000 which contains the hamming distances of each projected structure to the reference structure
+3) 'dis2' contains the pairwise hamming distances between the last 1000 projected sample structures.
+4) 'stru' gives a list of the base pairs in the reference structure, followed by each of the 2000 sampled structures. The list can converted back to bracket structure as follows:
+If M is in the list, M = aN+b, where a is the index of '(', b is the index of the corresponding ')' and N is the length of the structure in bracket notation, which can be found in project_k.str. Thus, b = M(mod N) and a = (M-b)/N
+The purpose of the list notations is to facilitate the calculation of hamming distances.
+
+error.txt:
+This file should not appear. It contains error messages.
