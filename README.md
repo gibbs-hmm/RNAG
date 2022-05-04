@@ -7,11 +7,11 @@ Installation
 Unpack the zip file. If you're reading this, you probably already have.
 You will need some auxiliary programs in order to run RNAG:
 
-probcons - available from http://probcons.stanford.edu/download.html
-Infernal package - available from http://eddylab.org/infernal/
-Vienna RNA package - available from http://www.tbi.univie.ac.at/RNA/
-Matlab or GNU Octave
-python 3.x
+probcons - available from http://probcons.stanford.edu/download.html<br />
+Infernal package - available from http://eddylab.org/infernal/<br />
+Vienna RNA package - available from http://www.tbi.univie.ac.at/RNA/<br />
+Matlab or GNU Octave<br />
+python 3.x<br />
 
 Note: Matlab is a commercial product and requires a license.
 Octave may be freely obtained from http://www.gnu.org/software/octave/
